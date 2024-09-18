@@ -27,7 +27,15 @@ y_LA= st.number_input('Do Extracurricular Activities', value=None,placeholder="0
 features = [hours, Previous_Scores, Sleep_Hours, SQPP, y_LA,]
 
 
+
+
+
 # Button to make prediction
-if st.button('Predict'):
-    result = predict_performance(features)
-    st.write(f'Predicted Performance: {result}')
+try:
+    if st.button('Predict'):
+        result = predict_performance(features)
+        
+        st.write(f'Predicted Performance: {result}')
+except Exception as e:
+    print(e)
+    st.write("Please fill all values")
