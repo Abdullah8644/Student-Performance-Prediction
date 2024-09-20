@@ -34,8 +34,10 @@ features = [hours, Previous_Scores, Sleep_Hours, SQPP, y_LA,]
 try:
     if st.button('Predict'):
         result = predict_performance(features)
-        
+        if result >= 50:
+            st.balloons()
         st.write(f'Predicted Performance: {result:.2f}')
+
 except Exception as e:
     print(e)
     st.write("Please fill all values")
